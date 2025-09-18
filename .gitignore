@@ -1,0 +1,39 @@
+# Uploaded files
+uploads/*
+!uploads/.gitkeep
+
+# Environment variables
+.env
+
+# Logs
+*.log
+error_log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PHP specific
+vendor/
+composer.phar
+composer.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database dumps
+*.sql.gz
+*.sql.bak

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Player Card -->
+        <div class="player-card">
+            <div class="album-art">
+                <div class="album-image" id="album-image">
+                    <i class="fas fa-music"></i>
+                </div>
+            </div>
+
+            <div class="track-info">
+                <h2 id="current-song-title">No song playing</h2>
+                <p id="current-song-artist">Select a track</p>
+            </div>
+
+            <div class="progress-container">
+                <span class="time" id="current-time">0:00</span>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-handle" id="progress-handle"></div>
+                </div>
+                <span class="time" id="duration">0:00</span>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" id="prev-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="control-btn play-pause" id="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="control-btn" id="next-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+
+            <audio id="audio-player" preload="metadata"></audio>
+        </div>
+
+        <!-- Management Cards -->
+        <div class="management-container">
+            <!-- Upload Card -->
+            <div class="card upload-card">
+                <h3>
+                    <span><i class="fas fa-upload"></i> Add Music</span>
+                    <button class="minimize-btn" onclick="toggleCard(this)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </h3>
+
+                <div class="card-content">
+                    <div class="upload-section">
+                    <h4>Upload New File</h4>
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="52428800">
+                        <div class="input-group">
+                            <input type="file" id="music-file" accept="audio/*" required>
+                            <input type="text" id="song-title" placeholder="Song Title" required>
+                            <input type="text" id="song-artist" placeholder="Artist" required>
+                            <input type="text" id="song-album" placeholder="Album (optional)">
+                        </div>
+                        <button type="submit" class="modern-btn">
+                            <i class="fas fa-plus"></i> Upload Song
+                        </button>
+                    </form>
+                </div>
+
+                <div class="local-browser">
+                    <h4>Add Local Files</h4>
+                    <div class="input-group">
+                        <input type="text" id="music-directory" placeholder="/home/shrek/Music" value="/home/shrek/Music">
+                        <button id="scan-directory" class="modern-btn">
+                            <i class="fas fa-search"></i> Scan Directory
+                        </button>
+                    </div>
+                    <div id="local-files-list" class="local-files-container">
+                        <!-- Local music files will be listed here -->
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Library Card -->
+            <div class="card library-card">
+                <h3>
+                    <span><i class="fas fa-music"></i> Music Library</span>
+                    <button class="minimize-btn" onclick="toggleCard(this)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </h3>
+                <div class="card-content">
+                    <div class="input-group">
+                        <input type="text" id="song-search" placeholder="Search songs..." style="margin-bottom: 0;">
+                    </div>
+                    <div class="song-list" id="songs-list">
+                        <!-- Songs will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Playlists Card -->
+            <div class="card playlists-card">
+                <h3>
+                    <span><i class="fas fa-list"></i> Playlists</span>
+                    <button class="minimize-btn" onclick="toggleCard(this)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </h3>
+                <div class="card-content">
+                    <button id="create-playlist-btn" class="modern-btn">
+                        <i class="fas fa-plus"></i> Create New Playlist
+                    </button>
+                    <div class="playlist-list" id="playlists-list">
+                        <!-- Playlists will be loaded here by JavaScript -->
+                    </div>
+
+                    <div id="playlist-details" class="hidden">
+                        <h4><span id="current-playlist-name"></span> Songs</h4>
+                        <div class="song-list" id="current-playlist-songs">
+                            <!-- Songs in the selected playlist -->
+                        </div>
+                        <button id="back-to-playlists" class="modern-btn secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Playlists
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
