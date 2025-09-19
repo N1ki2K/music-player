@@ -24,7 +24,7 @@ MusicPlayer-Project/
 
 **✅ XAMPP Ready!** - Just copy this folder to `C:\xampp\htdocs\` and it works!
 
-## Features
+## Features.
 
 - **Music Playback**: Play, pause, next, previous functionality
 - **Playlist Management**: Create, delete, rename playlists

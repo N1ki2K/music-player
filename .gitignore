@@ -33,6 +33,7 @@ composer.lock
 tmp/
 temp/
 *.tmp
+*.claude
 
 # Database dumps
 *.sql.gz
