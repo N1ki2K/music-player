@@ -6,21 +6,23 @@ A modern web-based music player with playlist management, local file scanning, a
 
 ```
 MusicPlayer-Project/
-├── frontend/           # Frontend files (HTML, CSS, JS)
-│   ├── index.html     # Main HTML file
-│   ├── style.css      # CSS styles with modern glassmorphism design
-│   └── script.js      # JavaScript functionality
-├── backend/           # Backend PHP files
-│   ├── api.php        # REST API endpoints
-│   ├── db_connect.php # Database connection
-│   ├── upload_simple.php # File upload handler
-│   ├── local_scanner.php # Local file scanner
-│   └── serve_file.php # Audio file server
-├── database/          # Database files
-│   └── ai_studio_code.sql # Database schema
-├── uploads/           # Uploaded music files
-└── README.md          # This file
+├── index.html              # Main HTML file
+├── style.css               # CSS styles with modern glassmorphism design
+├── script.js               # JavaScript functionality
+├── api.php                 # REST API endpoints
+├── db_connect.php          # Database connection
+├── upload_simple.php       # File upload handler
+├── local_scanner.php       # Local file scanner
+├── serve_file.php          # Audio file server
+├── database/               # Database files
+│   └── ai_studio_code.sql  # Database schema
+├── uploads/                # Uploaded music files
+├── config.php              # Configuration
+├── .env.example            # Environment template
+└── README.md               # This file
 ```
+
+**✅ XAMPP Ready!** - Just copy this folder to `C:\xampp\htdocs\` and it works!
 
 ## Features
 
@@ -57,29 +59,42 @@ MusicPlayer-Project/
   - `memory_limit = 256M`
   - `max_execution_time = 300`
 
-## Running the Application
+## 🚀 Easy XAMPP Setup
 
-### Linux/Mac
-1. Run the setup script: `./setup.sh`
-2. Start PHP server: `php -S localhost:8000`
-3. Open browser to `http://localhost:8000`
+### 1. Install XAMPP
+- Download from [https://www.apachefriends.org/](https://www.apachefriends.org/)
+- Install it
 
-### Windows
-1. **Install XAMPP** from [https://www.apachefriends.org/](https://www.apachefriends.org/)
-2. **Copy project** to `C:\xampp\htdocs\MusicPlayer-Project\`
-3. **Start services** in XAMPP Control Panel (Apache + MySQL)
-4. **Run setup**: Right-click `setup-windows.bat` → "Run as Administrator"
-5. **Setup database** via phpMyAdmin (`http://localhost/phpmyadmin/`):
-   ```sql
-   CREATE DATABASE music_player;
-   CREATE USER 'music_user'@'localhost' IDENTIFIED BY 'music_pass';
-   GRANT ALL PRIVILEGES ON music_player.* TO 'music_user'@'localhost';
-   FLUSH PRIVILEGES;
-   ```
-6. **Import schema**: Import `database/ai_studio_code.sql`
-7. **Access app**: `http://localhost/MusicPlayer-Project/`
+### 2. Copy Project
+- Copy this entire `MusicPlayer-Project` folder to `C:\xampp\htdocs\`
 
-📋 **See `WINDOWS-SETUP.md` for detailed Windows instructions**
+### 3. Start Services
+- Open XAMPP Control Panel
+- Start **Apache** and **MySQL**
+
+### 4. Setup Database
+- Go to `http://localhost/phpmyadmin/`
+- Click **SQL** tab and run:
+```sql
+CREATE DATABASE music_player;
+CREATE USER 'music_user'@'localhost' IDENTIFIED BY 'music_pass';
+GRANT ALL PRIVILEGES ON music_player.* TO 'music_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+- Click on `music_player` database → **Import** → Choose `database/ai_studio_code.sql`
+
+### 5. Access Your Music Player
+- Open browser: `http://localhost/MusicPlayer-Project/`
+
+**That's it! No symlinks, no scripts, just works! 🎉**
+
+---
+
+### Alternative: Linux/Mac with PHP
+```bash
+php -S localhost:8000
+```
+Then go to `http://localhost:8000`
 
 ## API Endpoints
 
